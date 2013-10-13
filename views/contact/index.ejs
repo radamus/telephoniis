@@ -1,0 +1,40 @@
+
+
+<div class="container">
+	<h3 class="text-center">Kontakty</h3>
+	<form class="form-inline text-center" role="form" id='searchform'>
+  
+ 
+    <div class="form-group">
+        <input type="text" class="form-control search-control" placeholder="Szukaj" id="search">
+      </div>
+
+</form>
+<hr/>
+	<div class="table-responsive">
+	<table class="table table-striped table-condensed">
+	<thead>
+		<tr> 
+			<th>Tytuł</th>
+			<th>Nazwisko</th>
+			<th>Instytucja</th>
+			<th>Numer tel.</th>
+			<th></th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody id = "contacts">
+		<% _.each(contacts, function(contact) { %>
+		<tr>
+			<td><%=contact.title %></td>
+			<td> <%=contact.lname %></td>
+			<td> <%=contact.institution %></td>
+			<td> <%=contact.phone %></td>
+			<td> <a href='/contact/show/<%=contact.id%>' class="btn btn-primary">Szczegóły</a></td>
+			<td> <a href='/contact/edit/<%=contact.id%>' class="btn btn-warning">Edytuj</a></td>
+		</tr>
+			<% }) %>
+		</tbody>
+	</table>
+	</div>
+</div>

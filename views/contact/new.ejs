@@ -1,0 +1,58 @@
+<form action="/contact/create" method="post" class="form-horizontal">
+	<h2 class="form-edit-heading">Utwórz nowy kontakt</h2>
+
+
+
+<div class="form-group">
+ <label for="title" class="col-lg-2 control-label">Tytuł</label>
+ <div class="col-lg-10">
+	<select class="form-control"  id='title'>
+	  <option></option>
+	  <option>prof.</option>
+	  <option>dr hab.</option>
+	  <option>dr</option>
+	  <option>mgr</option>
+	</select>
+</div>
+</div>
+	
+	<div class="form-group">
+		<label for="fname" class="col-lg-2 control-label">Imię</label>
+ 		<div class="col-lg-10">
+		<input type="text" class = "form-control" placeholder="Imię" name="fname">	
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="fname" class="col-lg-2 control-label">Nazwisko</label>
+ 		<div class="col-lg-10">
+		<input type="text" class = "form-control" placeholder="Nazwisko" name="lname">	
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="fname" class="col-lg-2 control-label">Instytucja</label>
+ 		<div class="col-lg-10">
+		<input type="text" class = "form-control" placeholder="Instytucja" name="institution">	
+		</div>
+	</div>
+	<div class="form-group">
+	<label for="fname" class="col-lg-2 control-label">Telefon</label>
+ 		<div class="col-lg-10">
+		<input type="text" class = "form-control" placeholder="Telefon" name="phone">	
+	</div>
+	</div>
+	<div class="form-group">
+	<label for="fname" class="col-lg-2 control-label">email</label>
+ 		<div class="col-lg-10">
+		<input type="text" class = "form-control" placeholder="email" name="email">
+	</div>
+	</div>
+	<div class="form-group">
+	<label for="fname" class="col-lg-2 control-label">Uwagi</label>
+ 		<div class="col-lg-10">
+	<textarea class="form-control" id="notes" name="notes"
+        placeholder="Uwagi" rows="5"></textarea>
+	</div>
+	</div>
+	<input type="submit" class = "btn btn-lg btn-primary btn-block" value="Utwórz kontakt">
+	<input type="hidden"   name="_csrf" value="<%= _csrf %>">
+</form>
