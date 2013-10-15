@@ -33,15 +33,23 @@ module.exports = {
       email : true
   		 	  		
   	},
-     address : {
-      type: 'string',
-              
-    },
-  	
+      	
   	notes: {
   		type: 'string'
   	},
     
   },
 
+  labels: {
+    title:'Tytuł',
+    fname : 'Imię',
+    lname : 'Nazwisko',
+    
+    institution : 'Instytucja',
+    phone : 'Telefon',
+
+    email : 'email',
+        
+    notes: 'Uwagi',
+  }
 }; 

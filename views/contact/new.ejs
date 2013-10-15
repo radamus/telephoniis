@@ -1,4 +1,4 @@
-<form action="/contact/create" method="post" class="form-horizontal">
+<!-- <form action="/contact/create" method="post" class="form-horizontal">
 	<h2 class="form-edit-heading">Utwórz nowy kontakt</h2>
 
 
@@ -6,13 +6,8 @@
 <div class="form-group">
  <label for="title" class="col-lg-2 control-label">Tytuł</label>
  <div class="col-lg-10">
-	<select class="form-control"  id='title'>
-	  <option></option>
-	  <option>prof.</option>
-	  <option>dr hab.</option>
-	  <option>dr</option>
-	  <option>mgr</option>
-	</select>
+ <%//- ContactServices.titleOptions() %>
+
 </div>
 </div>
 	
@@ -55,4 +50,5 @@
 	</div>
 	<input type="submit" class = "btn btn-lg btn-primary btn-block" value="Utwórz kontakt">
 	<input type="hidden"   name="_csrf" value="<%= _csrf %>">
-</form>
+</form> -->
+<%- ContactServices.editForm('utwórz kontakt', '/contact/create', _csrf) %>
