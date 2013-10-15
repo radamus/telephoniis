@@ -64,11 +64,10 @@ module.exports = {
   },
 
   update  : function(req, res, next) {
-  		Contact.findOne(req.param('id'), function(err, found) {
+  		Contact.update(req.param('id'), req.params.all(), function(err) {
   			if(err) return next(err);
 
-  			if(!found) return next();
-  			res.view({contact : found})
+  			res.redirect("/contact/show/" + req.param('id'));
   		})
   },
 }

@@ -1,7 +1,8 @@
 var _titleOptions = function(selected, disabled){
     var titles = ['prof.', 'dr hab.', 'dr', 'mgr'];
     var select = [];
-    select.push('<select class="form-control"  id="title" '+  (disabled?'disabled': ' ') +'>');
+    console.log("selected: " + selected)
+    select.push('<select class="form-control"  name="title" '+  (disabled?'disabled': ' ') +'>');
     select.push('<option></option>');
     titles.forEach(function(elem){
         var isSelected = (selected === elem);
@@ -17,11 +18,13 @@ var _label = function(forattr, value){
 }
 
 var _textinput = function(placeholder, name, value, disabled){
-	return '<input type="text" class = "form-control" value = "'+ value +'"placeholder="' + placeholder + '" name="' + name + '" '+  (disabled?'disabled': ' ') +'></input>';
+	return '<input type="text" class = "form-control" value = "'+ value +'" placeholder="' + placeholder + '" name="' + name + '" '+  (disabled?'disabled': ' ') +'></input>';
 }
 
 var _textarea = function(placeholder, name, value, disabled){
-	return '<textarea class="form-control" value = "'+ value +'" placeholder="' + placeholder + '" name="' + name + '" rows="5" '+  (disabled?'disabled': ' ') +'></textarea>';
+	var placeOrValue = value? ' value = "' + value : ' placeholder = "' + placeholder;
+	placeOrValue += '" ';
+	return '<textarea class="form-control" value = "'+ value +'" placeholder="' + placeholder + '" name="' + name + '" rows="5" '+  (disabled?'disabled': ' ') +'>'+value+'</textarea>';
 	
 }
 exports.editForm = function(submit, action, csrf, contact, disabled) {
@@ -33,7 +36,7 @@ exports.editForm = function(submit, action, csrf, contact, disabled) {
 	if(!contact){
 		contact = {};
 		for(var i = 0; i < attributes.length; i++){
-			contact[attributes[i]] = " ";
+			contact[attributes[i]] = "";
 		}
 	}
 	var form = [];
