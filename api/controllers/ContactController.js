@@ -70,4 +70,12 @@ module.exports = {
   		})
   },
 
+  create : function(req, res, next){
+  	Contact.create(req.params.all(), function(err, contact){
+  		if(err) return next(err);
+
+  		res.redirect("/contact/show/" + contact.id);
+  	})
+  }
+
 }
