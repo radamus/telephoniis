@@ -24,15 +24,7 @@
 		</tr>
 		</thead>
 		<tbody id = "contacts">
-		<% _.each(contacts, function(contact) { %>
-		<tr>
-			<td><%=contact.title?contact.title : '' %></td>
-			<td> <%=contact.lname %></td>
-			<td> <%=contact.institution %></td>
-			<td> <%=contact.phone %></td>
-			<td> <a href='/contact/show/<%=contact.id%>' class="btn btn-primary btn-sm">Szczegóły</a></td>
-		</tr>
-			<% }) %>
+		
 		</tbody>
 	</table>
 	</div>
