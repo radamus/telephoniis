@@ -7,7 +7,7 @@
  */
 
 module.exports = {
-
+  schema:true,
 
   attributes: {
   	
@@ -20,13 +20,13 @@ module.exports = {
   	lname : {
   		type: 'string',  		
   	},
-  	
+  	phone : {
+      type: 'string',       
+    },
   	institution : {
   		type: 'string',  		
   	},
-  	phone : {
-  		type: 'string',  			
-  	},
+  	
 
   	email : {
   		type: 'string',

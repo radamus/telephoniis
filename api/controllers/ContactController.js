@@ -70,4 +70,5 @@ module.exports = {
   			res.redirect("/contact/show/" + req.param('id'));
   		})
   },
+  
 }

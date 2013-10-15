@@ -27,9 +27,9 @@ var _textarea = function(placeholder, name, value, disabled){
 	return '<textarea class="form-control" value = "'+ value +'" placeholder="' + placeholder + '" name="' + name + '" rows="5" '+  (disabled?'disabled': ' ') +'>'+value+'</textarea>';
 	
 }
-exports.editForm = function(submit, action, csrf, contact, disabled) {
+exports.contactForm = function(title, submitText, submitAction, cancelText,  csrf, contact, disabled) {
 	var formgroup = '<div class="form-group">';
-	var elemdiv = '<div class="col-lg-10">';
+	var elemdiv = '<div class="col-lg-10 controls">';
 	var closediv = '</div>';
 	var attributes = Object.keys(Contact.attributes);
 	if(!disabled) {disabled = false;}
@@ -41,9 +41,9 @@ exports.editForm = function(submit, action, csrf, contact, disabled) {
 	}
 	var form = [];
 	form.push('<form action="');
-	form.push(action);
+	form.push(submitAction);
 	form.push('" method="post" class="form-horizontal">');
-	form.push('<h2 class="form-edit-heading">Edytuj kontakt</h2>');
+	form.push('<h2 class="form-edit-heading">'+title+' </h2>');
 	for(var i = 0; i < attributes.length; i++){
 		form.push(formgroup);
 		form.push(_label(attributes[i], Contact.labels[attributes[i]]));
@@ -58,9 +58,18 @@ exports.editForm = function(submit, action, csrf, contact, disabled) {
 		form.push(closediv);
 		form.push(closediv);
 	}
+	form.push(formgroup);
+
+	form.push('<div class="col-lg-6 controls">');
+	form.push('<input type="submit" class = "btn btn-lg btn-primary btn-block" value="'+submitText +'"> <input type="hidden"   name="_csrf" value="' + csrf+'">');
+	form.push(closediv);
 	
-	form.push('<input type="submit" class = "btn btn-lg btn-primary btn-block" value="'+submit +'"> <input type="hidden"   name="_csrf" value="' + csrf+'">');
-	form.push('</form>');
+
+	form.push('<div class="col-lg-6 controls">');
+	form.push('<button class="btn btn-lg btn-primary btn-block" type="button" onclick="history.go(-1);">' +cancelText+'</button>');
+	form.push(closediv);
+	form.push('</div></form>');
+	form.push("<script></script>");
 	return form.join("\n");
 	
 }
