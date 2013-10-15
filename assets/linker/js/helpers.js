@@ -17,7 +17,10 @@ $(document).ready(function(){
                 	$("#contacts").append(html.html);
             	}	
         	});
-    	} return false; 
+    	}else {
+			$("#contacts").empty();
+		}
+		return false; 
 	});
 
 	$("#searchform").on( "submit", function(e) {
