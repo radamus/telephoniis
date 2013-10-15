@@ -27,7 +27,7 @@ var _textarea = function(placeholder, name, value, disabled){
 	return '<textarea class="form-control" value = "'+ value +'" placeholder="' + placeholder + '" name="' + name + '" rows="5" '+  (disabled?'disabled': ' ') +'>'+value+'</textarea>';
 	
 }
-exports.contactForm = function(title, submitText, submitAction, cancelText,  csrf, contact, disabled) {
+exports.contactForm = function(title, submitText, submitAction, cancelText,  cancelAction, csrf, contact, disabled) {
 	var formgroup = '<div class="form-group">';
 	var elemdiv = '<div class="col-lg-10 controls">';
 	var closediv = '</div>';
@@ -66,7 +66,8 @@ exports.contactForm = function(title, submitText, submitAction, cancelText,  csr
 	
 
 	form.push('<div class="col-lg-6 controls">');
-	form.push('<button class="btn btn-lg btn-primary btn-block" type="button" onclick="history.go(-1);">' +cancelText+'</button>');
+	
+	form.push('<a href="' +cancelAction + '" class="btn btn-lg btn-primary btn-block">' +cancelText+'</a>');
 	form.push(closediv);
 	form.push('</div></form>');
 	form.push("<script></script>");

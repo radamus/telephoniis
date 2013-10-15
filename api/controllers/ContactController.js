@@ -18,8 +18,7 @@ module.exports = {
   	})
     
   },
-  find : function(req, res, next) {
-
+  find : function(req, res, next) {  	
   	Contact.findByLnameLike(req.param('query'), function(err, contacts){
   		if(err) return next(err);
   		var html = [];
@@ -36,7 +35,7 @@ module.exports = {
   			html.push(td);
   			html.push(elem.phone);
   			html.push(td);
-  			html.push("<a href='/contact/show/" + elem.id + "' class='btn btn-primary'>Szczegóły</a>");
+  			html.push("<a href='/contact/show/" + elem.id + "' class='btn btn-primary details'>Szczegóły</a>");
   			html.push("</td>");  			
   			html.push("</tr>");
   		});
@@ -70,5 +69,5 @@ module.exports = {
   			res.redirect("/contact/show/" + req.param('id'));
   		})
   },
-  
+
 }

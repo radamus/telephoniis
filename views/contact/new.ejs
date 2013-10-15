@@ -51,4 +51,4 @@
 	<input type="submit" class = "btn btn-lg btn-primary btn-block" value="Utwórz kontakt">
 	<input type="hidden"   name="_csrf" value="<%= _csrf %>">
 </form> -->
-<%- ContactServices.contactForm('Nowy kontakt','Utwórz kontakt',  '/contact/create', 'Anuluj',  _csrf) %>
+<%- ContactServices.contactForm('Nowy kontakt','Utwórz kontakt',  '/contact/create', 'Anuluj', '/', _csrf) %>
