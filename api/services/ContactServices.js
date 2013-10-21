@@ -27,7 +27,10 @@ var _textarea = function(placeholder, name, value, disabled){
 	return '<textarea class="form-control" value = "'+ value +'" placeholder="' + placeholder + '" name="' + name + '" rows="5" '+  (disabled?'disabled': ' ') +'>'+value+'</textarea>';
 	
 }
-exports.contactForm = function(title, submitText, submitAction, cancelText,  cancelAction, csrf, contact, disabled) {
+exports.contactForm = function( options) {
+
+	var title = options.title, submitText = options.submitText, submitAction = options.submitAction, cancelText = options.cancelText,  
+	cancelAction = options.cancelAction, csrf = options.csrf, contact = options.contact, disabled = options.disabled, flash = options.flash;
 	var formgroup = '<div class="form-group">';
 	var elemdiv = '<div class="col-lg-10 controls">';
 	var closediv = '</div>';
@@ -42,7 +45,7 @@ exports.contactForm = function(title, submitText, submitAction, cancelText,  can
 	var form = [];
 	form.push('<form action="');
 	form.push(submitAction);
-	form.push('" method="post" class="form-horizontal">');
+	form.push('" method="post" class="form-horizontal" id="form-contact">');
 	form.push('<h2 class="form-edit-heading">'+title+' </h2>');
 	for(var i = 0; i < attributes.length; i++){
 		form.push(formgroup);

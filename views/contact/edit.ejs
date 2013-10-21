@@ -1,1 +1,11 @@
-<%- ContactServices.contactForm('Edytuj kontakt','Zapisz zmiany', '/contact/update/' + contact.id, 'Anuluj', '/contact/show/' + contact.id, _csrf, contact) %>
+
+<%- ContactServices.contactForm({
+	title : 'Edytuj kontakt',
+	submitText: 'Zapisz zmiany', 
+	submitAction : '/contact/update/'  + contact.id, 
+	cancelText : 'Anuluj', 
+	cancelAction: '/contact/show/'+ contact.id, 
+	csrf: _csrf, 
+	contact: contact,
+	flash : flash
+	}) %>

@@ -57,7 +57,7 @@ module.exports = {
   		Contact.findOne(req.param('id'), function(err, found) {
   			if(err) return next(err);
 
-  			if(!found) return next();
+  			if(!found) return next('Kontakt nie istnieje');
   			res.view({contact : found})
   		})
   },
@@ -72,10 +72,26 @@ module.exports = {
 
   create : function(req, res, next){
   	Contact.create(req.params.all(), function(err, contact){
-  		if(err) return next(err);
+  		if(err) {
+        console.log(err);
+        req.session.flash = {err:err};
+        return res.redirect('contact/new');      
+      }
 
   		res.redirect("/contact/show/" + contact.id);
   	})
-  }
+  },
+
+  destroy : function(req, res, next) {
+  		Contact.findOne(req.param('id'), function(err, found) {
+  			if(err) return next(err);
+
+  			if(!found) return next('Kontakt nie istnieje');
+  			Contact.destroy(req.param('id'), function(err){
+  				if(err) return next(err);  				
+  			})
+  			res.redirect('/');
+  		})
+  	},
 
 }

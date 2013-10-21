@@ -1,1 +1,11 @@
-<%- ContactServices.contactForm('Szczegóły kontaktu','Edytuj', '/contact/edit/' + contact.id, 'Zamknij', '/',_csrf, contact, true) %>
+
+<%- ContactServices.contactForm({
+	title : 'Szczegóły kontaktu',
+	submitText: 'Edytuj', 
+	submitAction : '/contact/edit/'  + contact.id, 
+	cancelText : 'Anuluj', 
+	cancelAction: '/', 
+	csrf: _csrf, 
+	contact: contact,
+	disabled : true
+	}) %>

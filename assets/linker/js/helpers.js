@@ -17,15 +17,13 @@ $(document).ready(function(){
                 	$("#contacts").append(html.html);
             	}	
         	});
-    	}else {
-			$("#contacts").empty();
-		}
-		return false; 
+    	} return false; 
 	});
 
 	$("#searchform").on( "submit", function(e) {
 		e.preventDefault();
 	} );
+    $(".details").on("click", function(e) {});
 })
 
 

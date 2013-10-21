@@ -1,2 +1,10 @@
 
-<%- ContactServices.contactForm('Nowy kontakt','Utwórz kontakt',  '/contact/create', 'Anuluj', '/', _csrf) %>
+<%- ContactServices.contactForm( {
+	title : 'Nowy kontakt',
+	submitText: 'Utwórz kontakt', 
+	submitAction : '/contact/create', 
+	cancelText : 'Anuluj', 
+	cancelAction: '/', 
+	csrf: _csrf, 
+	flash : flash
+	}) %>

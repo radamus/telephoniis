@@ -19,9 +19,11 @@ module.exports = {
   	},
   	lname : {
   		type: 'string',  		
+      required:true
   	},
   	phone : {
-      type: 'string',       
+      type: 'string', 
+      required:true      
     },
   	institution : {
   		type: 'string',  		
