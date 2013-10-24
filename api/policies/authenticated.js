@@ -8,8 +8,14 @@ module.exports = function (req, res, ok) {
     return ok();
   }
 
-  // User is not allowed
   else {
-    return res.send("You are not permitted to perform this action.", 403);
+  	var requireLoginError = [{name: 'Wymagana autoryzacja', message: 'Musisz być zalogowany'}]
+		req.session.flash = {
+			err: requireLoginError
+		}
+		//console.log(req);
+		req.session.redirect_to = req.path;
+		res.redirect('/session/new');
+    return;
   }
 };

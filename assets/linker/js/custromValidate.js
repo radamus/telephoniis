@@ -27,7 +27,7 @@ $(document).ready(function(){
    		}
 	});
 	
-	$('#form-signin').validate({		
+	$('#form-signin, #navbar-form-signin').validate({		
 		rules :{			
 			email : {		
 				required:true,	

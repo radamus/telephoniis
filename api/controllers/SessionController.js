@@ -62,9 +62,18 @@ module.exports = {
 				req.session.authenticated = true;
 				req.session.User = user;
 
-				
-				res.redirect('/user/show/' + user.id);
+				 var redirect_to = req.session.redirect_to ? req.session.redirect_to : ('/user/show/' + user.id);
+        		delete req.session.redirect_to;
+        		res.redirect(redirect_to);
 			});
 		});
 	},
+	destroy: function(req, res, next) {
+	
+				// Wipe out the session (log out)
+				req.session.destroy();
+				
+				res.redirect('/');
+	
+	}
 };

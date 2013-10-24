@@ -12,7 +12,22 @@ var _titleOptions = function(selected, disabled){
     return select.join(' ');
 }
 
+var _flash = function(flash){
+	var flmarkup = [];
+	if(flash && flash.err){
 
+		flmarkup.push('<ul class="alert alert-success">');
+	
+		Object.keys(flash.err).forEach(function(error) { 
+			flmarkup.push('<li>');
+			flmarkup.push(JSON.stringify(flash.err[error]));
+			flmarkup.push('</li>');
+			
+		}) 
+	flmarkup.push('<ul>');
+	}
+	return flmarkup.join(' '); 
+}
 var _label = function(forattr, value){
 	return '<label for="' + forattr + '" class="col-lg-2 control-label">' + value + '</label>';
 }
@@ -47,6 +62,7 @@ exports.contactForm = function( options) {
 	form.push(submitAction);
 	form.push('" method="post" class="form-horizontal" id="form-contact">');
 	form.push('<h2 class="form-edit-heading">'+title+' </h2>');
+	form.push(_flash(flash));
 	for(var i = 0; i < attributes.length; i++){
 		form.push(formgroup);
 		form.push(_label(attributes[i], Contact.labels[attributes[i]]));

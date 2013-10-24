@@ -41,8 +41,25 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
-   
-  </div><!-- /.navbar-collapse -->
+    <% if (session.authenticated) { %>
+    <ul class="nav navbar-nav">
+              <li class="active"><a href="/user/show/<%= session.User.id %>"><%= session.User.name %> </a> </li>
+              </ul>
+            <% } %>
+  
+         <div class="navbar-collapse collapse  navbar-ex1-collapse">
+          
+            <% if (session.authenticated) { %>
+              <a class="btn btn-default navbar-btn navbar-right" href="/session/destroy">Wyloguj</a>
+            <% } %>
+         
+          <% if (!session.authenticated) { %>
+             <a class="btn btn-default navbar-btn navbar-right" href="/session/new">Zaloguj</a>
+          <% } %>
+          
+        </div>  
+       
+  </div><!-- /.navbar-collapse -->          
 </nav>
     <%- body %>
 
