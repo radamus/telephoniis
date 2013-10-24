@@ -66,7 +66,7 @@ module.exports = {
   		Contact.update(req.param('id'), req.params.all(), function(err) {
   			if(err) return next(err);
 
-  			res.redirect("/contact/show/" + req.param('id'));
+  			res.redirect(303, "/contact/show/" + req.param('id'));
   		})
   },
 

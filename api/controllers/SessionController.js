@@ -58,10 +58,15 @@ module.exports = {
 					return;
 				}
 
-				// Log user in
+				// Log user in				
 				req.session.authenticated = true;
 				req.session.User = user;
 
+				//set session timeout
+				var currTime = new Date();
+				var expTime = new Date(currTime.getTime() + 6000000);
+				req.session.cookie.expires = expTime;
+				//redirect to orginally requested page
 				 var redirect_to = req.session.redirect_to ? req.session.redirect_to : ('/user/show/' + user.id);
         		delete req.session.redirect_to;
         		res.redirect(redirect_to);
