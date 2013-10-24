@@ -7,6 +7,7 @@
 var bcrypt = require('bcrypt'); 
 module.exports = {
 	'new': function(req, res) {
+		console.log(req.session);
 		res.view();
 	},
   create: function(req, res, next) {
@@ -69,7 +70,7 @@ module.exports = {
 				//redirect to orginally requested page
 				 var redirect_to = req.session.redirect_to ? req.session.redirect_to : ('/user/show/' + user.id);
         		delete req.session.redirect_to;
-        		res.redirect(redirect_to);
+        		res.redirect(303, redirect_to);
 			});
 		});
 	},
